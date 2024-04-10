@@ -62,8 +62,8 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
   };
 
   return (
-    <div className="">
-      <div className="card w-96 bg-base-100 shadow-xl ">
+    <div>
+      <div className="card w-80 bg-base-100 shadow-xl ">
         <figure className="px-10 pt-10">
           <svg
             xmlns="http://www.w3.org/2000/svg"

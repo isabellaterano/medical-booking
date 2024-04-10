@@ -34,7 +34,7 @@ const Notification = () => {
             <button className="close" onClick={closeNotification}>
               &times;
             </button>
-            <div className="appointment-card__content">
+            <div className="bg-red-700">
               <h3 className="appointment-card__title">Appointment Details</h3>
               {doctorData.map((doctor) => {
                 const storedAppointmentData = JSON.parse(
