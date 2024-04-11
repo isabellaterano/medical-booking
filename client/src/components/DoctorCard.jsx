@@ -84,19 +84,23 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
           <div className="card-actions">
             <button
               className={`btn btn-primary ${
-                appointments.length > 0 ? "btn btn-success" : ""
+                appointments.length > 0 ? "btn btn-error" : ""
               }`}
+              onClick={() =>
+                appointments.length > 0
+                  ? handleCancel(appointments[0].id)
+                  : null
+              }
             >
               {appointments.length > 0 ? (
-                <div>Scheduled</div>
+                <div>Cancel Appointment</div>
               ) : (
                 <div
                   onClick={() =>
                     document.getElementById("my_modal_5").showModal()
                   }
                 >
-                  <div>Book Appointment</div>
-                  <div>No Booking Fee</div>
+                  Book Appointment
                 </div>
               )}
             </button>

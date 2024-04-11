@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Appointments = () => {
   const [username, setUsername] = useState("");
@@ -11,18 +12,16 @@ const Appointments = () => {
       const storedDoctorData = JSON.parse(localStorage.getItem("doctorData"));
 
       if (storedUsername || storedDoctorData) {
-        // If both username and doctorData are available and doctorData is not empty
         setUsername(storedUsername);
         setDoctorData(storedDoctorData);
         setHasAppointments(true);
       } else {
-        // If there are no appointments or username is missing
         setHasAppointments(false);
-        console.log("No appointments available or username missing.");
+        //console.log("No appointments available or username missing.");
       }
     } catch (error) {
       console.error("Error retrieving appointment data:", error);
-      // Handle the error gracefully, e.g., by setting default values or showing an error message.
+
       setHasAppointments(false);
     }
   }, []);
@@ -74,7 +73,14 @@ const Appointments = () => {
             })}
           </div>
         ) : (
-          <p className="font-medium text-lg m-12">No appointments available.</p>
+          <>
+            <p className="font-medium text-lg m-12">
+              No appointments available.
+            </p>
+            <Link className="link link-primary" to={"/services"}>
+              Go back to services
+            </Link>
+          </>
         )}
       </div>
     </section>
