@@ -20,7 +20,7 @@ const Home = () => {
             support you every step of the way. Book your appointment now to take
             control of your health journey
           </p>
-          <Link to={"/appointments"}>
+          <Link to={"/services"}>
             <button className="btn btn-primary">Get Started</button>
           </Link>
         </div>

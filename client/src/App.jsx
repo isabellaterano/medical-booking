@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import Home from "./pages/Home.jsx";
-import Appointments from "./pages/Appointments.jsx";
+import Services from "./pages/Services.jsx";
 import Blog from "./pages/Blog.jsx";
 import Reviews from "./pages/Reviews.jsx";
 import SignUp from "./pages/SignUp.jsx";
@@ -13,14 +13,14 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import ReportsLayout from "./components/ReportsLayout.jsx";
-import Notification from "./components/Notification.jsx";
+import Appointments from "./pages/Appointments.jsx";
 import SelfCheckup from "./pages/SelfCheckup.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
-      <Notification />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -30,7 +30,7 @@ function App() {
 
         <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
-          <Route path="/appointments" element={<Appointments />} />
+          <Route path="/services" element={<Services />} />
           <Route
             path="/instantconsultation"
             element={<InstantConsultation />}
@@ -41,6 +41,7 @@ function App() {
           />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/reports" element={<ReportsLayout />} />
+          <Route path="/appointments" element={<Appointments />} />
         </Route>
       </Routes>
 

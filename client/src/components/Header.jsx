@@ -35,7 +35,7 @@ const Header = () => {
               </li>
 
               <li>
-                <NavLink to={"/appointments"}>Appointments</NavLink>
+                <NavLink to={"/services"}>Services</NavLink>
               </li>
               <li>
                 <NavLink to={"/blog"}>Health Blog</NavLink>
@@ -59,7 +59,7 @@ const Header = () => {
             </li>
 
             <li>
-              <NavLink to={"/appointments"}>Appointments</NavLink>
+              <NavLink to={"/services"}>Services</NavLink>
             </li>
             <li>
               <NavLink to={"/blog"}>Health Blog</NavLink>
@@ -94,6 +94,9 @@ const Header = () => {
               </li>
               <li className="justify-between">
                 <Link to={"/reports"}>Reports</Link>
+              </li>
+              <li className="justify-between">
+                <Link to={"/appointments"}>Appointments</Link>
               </li>
             </ul>
           </div>
