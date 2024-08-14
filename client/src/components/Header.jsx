@@ -6,13 +6,13 @@ const Header = () => {
   const { currentUser } = useSelector((state) => state.user);
 
   return (
-    <header className="navbar bg-base-100">
+    <header className="navbar bg-base-100 shadow-md">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -24,93 +24,107 @@ const Header = () => {
                 d="M4 6h16M4 12h8m-8 6h16"
               />
             </svg>
-          </div>
-          <nav>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <NavLink to={"/"}>Home</NavLink>
-              </li>
-
-              <li>
-                <NavLink to={"/services"}>Services</NavLink>
-              </li>
-              <li>
-                <NavLink to={"/blog"}>Health Blog</NavLink>
-              </li>
-              <li>
-                <NavLink to={"/reviews"}>Reviews</NavLink>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <NavLink to={"/"} className="btn btn-ghost text-xl">
-          StayHealthy
-          <img src={logo} alt="medical" width={"25px"} />
-        </NavLink>
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <nav>
-          <ul className="menu menu-horizontal px-1">
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-10 p-3 shadow-lg bg-base-100 rounded-box w-52"
+          >
             <li>
-              <NavLink to={"/"}>Home</NavLink>
-            </li>
-
-            <li>
-              <NavLink to={"/services"}>Services</NavLink>
+              <NavLink to={"/"} className="rounded-lg">
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/blog"}>Health Blog</NavLink>
+              <NavLink to={"/services"} className="rounded-lg">
+                Services
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/reviews"}>Reviews</NavLink>
+              <NavLink to={"/blog"} className="rounded-lg">
+                Health Blog
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/reviews"} className="rounded-lg">
+                Reviews
+              </NavLink>
             </li>
           </ul>
-        </nav>
+        </div>
+        <NavLink to={"/"} className="flex items-center space-x-2 ml-4">
+          <img src={logo} alt="StayHealthy" className="w-8 h-8" />
+          <span className="text-xl font-semibold">Stayhealthy</span>
+        </NavLink>
       </div>
-      {currentUser ? (
-        <div className="navbar-end">
-          <div className="dropdown dropdown-end ">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar "
-            >
-              <div className="w-10 rounded-full ">
+
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal space-x-4">
+          <li>
+            <NavLink to={"/"} className="rounded-lg hover:text-primary">
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/services"} className="rounded-lg hover:text-primary">
+              Services
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/blog"} className="rounded-lg hover:text-primary">
+              Health Blog
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/reviews"} className="rounded-lg hover:text-primary">
+              Reviews
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+
+      <div className="navbar-end">
+        {currentUser ? (
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
                 <img
-                  alt="Tailwind CSS Navbar component"
+                  alt="User Avatar"
                   src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                 />
               </div>
-            </div>
+            </label>
             <ul
               tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              className="mt-3 z-10 p-2 shadow-lg menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
-              <li className="justify-between">
-                <Link to={"/profile"}>Profile</Link>
+              <li>
+                <Link to={"/profile"} className="rounded-lg">
+                  Profile
+                </Link>
               </li>
-              <li className="justify-between">
-                <Link to={"/reports"}>Reports</Link>
+              <li>
+                <Link to={"/reports"} className="rounded-lg">
+                  Reports
+                </Link>
               </li>
-              <li className="justify-between">
-                <Link to={"/appointments"}>Appointments</Link>
+              <li>
+                <Link to={"/appointments"} className="rounded-lg">
+                  Appointments
+                </Link>
               </li>
             </ul>
           </div>
-        </div>
-      ) : (
-        <div className="navbar-end gap-4">
-          <NavLink className="btn btn-outline btn-primary" to={"/signup"}>
-            Sign Up
-          </NavLink>
-          <NavLink className="btn btn-active btn-primary" to={"/login"}>
-            Login
-          </NavLink>
-        </div>
-      )}
+        ) : (
+          <div className="flex items-center space-x-3">
+            <NavLink className="btn btn-outline btn-primary" to={"/signup"}>
+              Sign up
+            </NavLink>
+            <NavLink className="btn btn-primary" to={"/login"}>
+              Log in
+            </NavLink>
+          </div>
+        )}
+      </div>
     </header>
   );
 };
